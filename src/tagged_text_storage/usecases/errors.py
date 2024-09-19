@@ -1,0 +1,2 @@
+class TextStorageError(Exception):
+    pass

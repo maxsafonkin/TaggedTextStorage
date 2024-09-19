@@ -1,0 +1,28 @@
+Table texts {
+  id integer [primary key]
+  text varchar
+  created_at datetime
+  source_id integer
+  url varchar
+}
+
+Table tags {
+  id int [primary key]
+  title varchar
+}
+
+Table text_to_tag {
+  text_id int
+  tag_id int
+}
+
+Table sources {
+  id integer [primary key]
+  title varchar unique
+  url varchar
+}
+
+Ref: texts.source_id - sources.id
+
+Ref: texts.id < text_to_tag.text_id
+Ref: tags.id < text_to_tag.tag_id
